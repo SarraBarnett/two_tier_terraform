@@ -49,8 +49,8 @@ module "rds_instance" {
   instance_class     = "db.t2.micro"
   engine             = "mysql"
   engine_version     = "8.0"
-  username           = "admin"
-  password           = "${env.DB_PASSWORD}"
+  username           = var.db_username
+  password           = var.db_password
   security_group_id  = module.security_groups.rds_sg_id
   private_subnet_ids = module.vpc.private_subnet_ids
 }
