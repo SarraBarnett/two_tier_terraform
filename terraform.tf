@@ -7,10 +7,16 @@ terraform {
       version = "~> 4.0"
     }
   }
+}
 
-  # Configure Backend State Storage
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"
+}
 
-  backend "remote" {
+# Configure Backend State Storage
+terraform {
+  cloud {
     hostname     = "app.terraform.io"
     organization = "aws-infrastructure"
 
@@ -18,10 +24,4 @@ terraform {
       name = "two_tier_terraform"
     }
   }
-}
-
-# Configure the AWS Provider
-
-provider "aws" {
-  region = "us-east-1"
 }
