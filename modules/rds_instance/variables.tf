@@ -35,10 +35,10 @@ variable "private_subnet_ids" {
   description = "List of private subnet IDs"
 }
 
-variable "db_username" {
-  default = ""
+variable "rds_username" {
+  description = "The username for the RDS instance"
 }
 
-variable "db_password" {
-  default = ""
+variable "rds_password" {
+  description = "The password for the RDS instance"
 }
