@@ -45,7 +45,7 @@ module "ec2_instance" {
 module "rds_instance" {
   source             = "./modules/rds_instance"
   db_name            = "twotier"
-  allocated_storage  = 10
+  allocated_storage  = 2
   instance_class     = "db.t2.micro"
   engine             = "mysql"
   engine_version     = "8.0"
