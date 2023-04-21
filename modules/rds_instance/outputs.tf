@@ -9,11 +9,11 @@ output "rds_port" {
 }
 
 output "rds_username" {
-  value = aws_db_instance.rds.username
+  value = aws_db_instance.rds.db_username
 }
 
 output "rds_password" {
-  value = aws_db_instance.rds.password
+  value = aws_db_instance.rds.db_password
 }
 
 /* an output variable called db_instance that will be referenced by
