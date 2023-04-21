@@ -45,6 +45,10 @@ variable "private_subnet_ids" {
   description = "List of private subnet IDs"
 }
 
-variable "db_username" {}
+variable "db_username" {
+  default = ""
+}
 
-variable "db_password" {}
+variable "db_password" {
+  default = ""
+}
