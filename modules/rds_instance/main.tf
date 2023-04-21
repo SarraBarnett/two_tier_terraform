@@ -6,10 +6,11 @@ resource "aws_db_instance" "rds" {
   engine_version         = var.engine_version
   instance_class         = var.instance_class
   db_name                = var.db_name
-  username        = var.db_username
-  password        = var.db_password
+  username        = var.rds_username
+  password        = var.rds_password
   db_subnet_group_name   = aws_db_subnet_group.rds_subnet_group.name
   vpc_security_group_ids = [var.security_group_id]
+  skip_final_snapshot  = true
 }
 
 /* Create an RDS db subnet group to specify the private subnets.

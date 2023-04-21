@@ -1,8 +1,6 @@
 # Root Directory - Input Variables
-
 variable "db_username" {
-  description = "Username for the RDS instance"
-  default     = ""
+  type = string
 }
 
 variable "db_password" {
