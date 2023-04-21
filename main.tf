@@ -50,7 +50,7 @@ module "rds_instance" {
   engine             = "mysql"
   engine_version     = "8.0"
   username           = "admin"
-  password           = var.password
+  password           = "${env.DB_PASSWORD}"
   security_group_id  = module.security_groups.rds_sg_id
   private_subnet_ids = module.vpc.private_subnet_ids
 }
