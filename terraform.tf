@@ -15,7 +15,7 @@ terraform {
     organization = "aws-infrastructure"
 
     workspaces {
-      name = "two-tier-terraform"
+      name = "two_tier_terraform"
     }
   }
 }
