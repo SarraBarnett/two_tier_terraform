@@ -25,16 +25,6 @@ variable "db_name" {
   description = "The name of the RDS instance"
 }
 
-variable "username" {
-  type        = string
-  description = "The username for the RDS instance"
-}
-
-variable "password" {
-  type        = string
-  description = "The password for the RDS instance"
-}
-
 variable "security_group_id" {
   type        = string
   description = "The ID of the security group for the RDS instance"
