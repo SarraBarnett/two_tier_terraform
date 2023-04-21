@@ -44,3 +44,7 @@ variable "private_subnet_ids" {
   type        = list(string)
   description = "List of private subnet IDs"
 }
+
+variable "db_username" {}
+
+variable "db_password" {}
