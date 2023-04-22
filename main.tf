@@ -36,7 +36,7 @@ module "ec2_instance" {
   key_name         = "projectkeypair"
   web_server_sg_id = module.security_groups.web_server_sg_id
   subnet_ids       = module.vpc.public_subnet_ids
-  user_data        = base64encode(file("apache_script.sh"))
+  user_data = filebase64("apache_script.sh")
 }
 
 
