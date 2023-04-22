@@ -2,7 +2,7 @@
 
 output "web_server_public_ips" {
   description = "Public IP addresses of the web server instances"
-  value       = module.ec2_instance.public_ips
+  value       = module.web_server.public_ips
 }
 
 output "rds_endpoint" {
