@@ -11,6 +11,7 @@ module "vpc" {
   cidr_block          = "10.0.0.0/16"
   public_subnet_cidr  = ["10.0.1.0/24", "10.0.2.0/24"]
   private_subnet_cidr = ["10.0.10.0/24", "10.0.11.0/24"]
+
 }
 
 
@@ -29,14 +30,14 @@ module "security_groups" {
 #   public web tier subnet 
 
 module "ec2_instance" {
-  source           = "./modules/ec2_instance"
-  name_prefix      = "web-tier"
-  ami              = "ami-069aabeee6f53e7bf"
-  instance_type    = "t2.micro"
-  key_name         = "projectkeypair"
-  web_server_sg_id = module.security_groups.web_server_sg_id
-  subnet_ids       = module.vpc.public_subnet_ids
-  user_data = filebase64("apache_script.sh")
+  source                         = "./modules/ec2_instance"
+  name_prefix                    = "web-tier"
+  ami                            = "ami-069aabeee6f53e7bf"
+  instance_type                  = "t2.micro"
+  key_name                       = "projectkeypair"
+  web_server_sg_id               = module.security_groups.web_server_sg_id
+  subnet_ids                     = module.vpc.public_subnet_ids
+  user_data                      = filebase64("apache_script.sh")
 }
 
 
