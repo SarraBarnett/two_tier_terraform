@@ -37,7 +37,13 @@ module "web_server" {
   key_name         = "projectkeypair"
   web_server_sg_id = module.security_groups.web_server_sg_id
   subnet_ids       = module.vpc.public_subnet_ids
-  user_data             = file("apache.sh")
+  user_data             = <<-EOF
+    #!/bin/bash
+    sudo yum update -y
+    sudo yum install httpd -y
+    sudo systemctl enable httpd
+    sudo systemctl start httpd
+    EOF
 }
 
 
