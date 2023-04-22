@@ -32,7 +32,7 @@ module "security_groups" {
 module "web_server" {
   source           = "./modules/ec2_instance"
   name_prefix      = "web-tier"
-  ami              = "ami-069aabeee6f53e7bf"
+  ami              = "ami-007855ac798b5175e"
   instance_type    = "t2.micro"
   key_name         = "projectkeypair"
   web_server_sg_id = module.security_groups.web_server_sg_id
