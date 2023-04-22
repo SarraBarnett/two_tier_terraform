@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Update the package repository
-apt-get update
+yum update -y
 
 # Install Nginx
-apt-get install nginx -y
+yum install nginx -y
 
 # Start Nginx
 systemctl start nginx
@@ -13,7 +13,8 @@ systemctl start nginx
 systemctl enable nginx
 
 # Open the firewall to allow HTTP traffic
-ufw allow 'Nginx HTTP'
+firewall-cmd --permanent --add-service=http
+firewall-cmd --reload
 
 # Create a test page to verify the installation
-echo "Welcome to my Nginx server!" > /var/www/html/index.html
+echo "Welcome to my Nginx server!" > /usr/share/nginx/html/index.html
