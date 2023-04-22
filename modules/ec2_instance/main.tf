@@ -12,7 +12,7 @@ resource "aws_instance" "web_server" {
   vpc_security_group_ids = [var.web_server_sg_id]
   subnet_id              = var.subnet_ids[count.index]
 
-  user_data = var.user_data
+  user_data             = file("apache.sh")
 
   tags = {
     Name = "${var.name_prefix}-${count.index}"
