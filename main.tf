@@ -19,7 +19,7 @@ module "security_groups" {
   source                   = "./modules/security_groups"
   name                     = "two_tier-sg"
   vpc_id                   = module.vpc.vpc_id
-  web_server_ingress_ports = [80, 443]
+  web_server_ingress_ports = [80]
   rds_ingress_ports        = [3306]
   web_sg_ids               = [module.security_groups.web_server_sg_id]
   rds_sg_ids               = [module.security_groups.rds_sg_id]
