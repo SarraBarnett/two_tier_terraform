@@ -8,6 +8,10 @@ resource "aws_vpc" "vpc" {
   }
   enable_dns_hostnames = true
   enable_dns_support   = true
+  
+  lifecycle {
+    create_before_destroy = true
+}
 }
 
 resource "aws_subnet" "public_subnet_1" {
@@ -50,6 +54,9 @@ resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.vpc.id
   tags = {
     Name = "${var.name}-internet-gateway"
+  }
+  lifecycle {
+    create_before_destroy = true
   }
 }
 
