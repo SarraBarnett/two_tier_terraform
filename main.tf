@@ -34,13 +34,14 @@ module "web_server" {
 module "mysql_db" {
   source = "./modules/rds_instance"
 
-  db_name            = "twotier"
-  allocated_storage  = 10
-  instance_class     = "db.t2.micro"
-  engine             = "mysql"
-  engine_version     = "8.0"
-  rds_username       = var.db_username
-  rds_password       = var.db_password
-  security_group_ids = [aws_security_group.rds_sg.id]
-  private_subnet_ids = module.vpc.private_subnet_ids
+  db_name             = "twotier"
+  allocated_storage   = 10
+  instance_class      = "db.t2.micro"
+  engine              = "mysql"
+  engine_version      = "8.0"
+  rds_username        = var.db_username
+  rds_password        = var.db_password
+  security_group_ids  = [aws_security_group.rds_sg.id]
+  private_subnet_ids  = module.vpc.private_subnet_ids
+  skip_final_snapshot = true
 }

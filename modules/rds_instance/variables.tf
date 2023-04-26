@@ -42,3 +42,12 @@ variable "security_group_ids" {
   description = "The IDs of the security groups to associate with the RDS instance"
   type        = list(string)
 }
+
+variable "skip_final_snapshot" {
+  description = <<DESC
+    If set to true, the RDS instance will be deleted without taking a final snapshot. 
+    If set to false, this value is required to prevent the RDS instance from being deleted without taking a final snapshot.
+  DESC
+  type        = bool
+  default     = true
+}
