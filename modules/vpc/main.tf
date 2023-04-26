@@ -8,6 +8,9 @@ resource "aws_vpc" "vpc" {
   tags = {
     Name = var.name
   }
+  lifecycle {
+    prevent_destroy = false
+  }
 }
 
 resource "aws_subnet" "public_subnet_1" {
