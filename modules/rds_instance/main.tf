@@ -1,4 +1,4 @@
-# RDS Instance Child Module:
+# RDS Instance Child Module
 
 resource "aws_db_instance" "rds" {
   allocated_storage      = var.allocated_storage
@@ -12,7 +12,7 @@ resource "aws_db_instance" "rds" {
   vpc_security_group_ids = var.security_group_ids
 }
 
-/* Create an RDS db subnet group to specify the private subnets.
+/* Create an RDS subnet group and assign the private subnets.
 We will reference this in the "aws_db_instance" "rds" resource block
 in the db_subnet_group_name parameter */
 

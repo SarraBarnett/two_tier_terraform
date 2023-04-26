@@ -7,5 +7,5 @@ output "web_server_public_ips" {
 
 output "rds_endpoint" {
   description = "The endpoint for the RDS MySQL instance"
-  value       = module.rds_instance.rds_endpoint
+  value       = module.mysql_db.rds_endpoint
 }

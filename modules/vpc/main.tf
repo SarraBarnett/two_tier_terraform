@@ -1,4 +1,4 @@
-# Child Module VPC 
+# VPC Child Module 
 
 
 resource "aws_vpc" "vpc" {

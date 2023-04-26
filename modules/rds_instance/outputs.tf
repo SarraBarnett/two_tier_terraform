@@ -1,20 +1,16 @@
 # RDS Instance Child Module - Output Variables
 
 output "rds_endpoint" {
-  value = aws_db_instance.rds.endpoint
+  description = "The endpoint URL of the RDS instance"
+  value       = aws_db_instance.rds.endpoint
 }
 
-output "rds_port" {
-  value = aws_db_instance.rds.port
+output "rds_instance_id" {
+  description = "The ID of the RDS instance"
+  value       = aws_db_instance.rds.id
 }
 
-output "rds_username" {
-  value = aws_db_instance.rds.username
+output "rds_instance_security_groups" {
+  description = "The IDs of the security groups associated with the RDS instance"
+  value       = aws_db_instance.rds.vpc_security_group_ids
 }
-
-output "rds_password" {
-  value = aws_db_instance.rds.password
-}
-
-/* an output variable called db_instance that will be referenced by
-the aws_db_instance resource in the child module. */

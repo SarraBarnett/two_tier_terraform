@@ -2,7 +2,7 @@
 
 variable "name" {
   type        = string
-  description = "The name of the VPC"
+  description = "A name to associate with the VPC and its resources."
 }
 
 variable "region" {
@@ -10,22 +10,20 @@ variable "region" {
   type        = string
 }
 
-
 variable "public_subnet_cidr_blocks" {
   type        = list(string)
-  description = "The CIDR blocks for the public subnets"
+  description = "The CIDR blocks for the two public subnets"
 }
 
 variable "private_subnet_cidr_blocks" {
   type        = list(string)
-  description = "The CIDR blocks for the private subnets"
+  description = "The CIDR blocks for the two private subnets"
 }
 
 variable "availability_zones" {
   type        = list(string)
-  description = "The availability zones to use for subnets"
+  description = "The availability zones in which to create the subnets."
 }
-
 
 variable "cidr_block" {
   type        = string

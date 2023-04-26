@@ -10,24 +10,24 @@ variable "engine_version" {
 }
 
 variable "allocated_storage" {
-  type        = number
   description = "The amount of storage to allocate for the RDS instance"
+  type        = number
 }
 
 variable "instance_class" {
-  type        = string
   description = "The instance class for the RDS instance"
+  type        = string
   default     = "db.t2.micro"
 }
 
 variable "db_name" {
+  description = "The name of the database to create on the RDS instance"
   type        = string
-  description = "The name of the RDS instance"
 }
 
 variable "private_subnet_ids" {
+  description = "The IDs of the private subnets to launch the RDS instance in"
   type        = list(string)
-  description = "List of private subnet IDs"
 }
 
 variable "rds_username" {
@@ -39,6 +39,6 @@ variable "rds_password" {
 }
 
 variable "security_group_ids" {
-  description = "List of security group IDs to associate with the RDS instance"
+  description = "The IDs of the security groups to associate with the RDS instance"
   type        = list(string)
 }

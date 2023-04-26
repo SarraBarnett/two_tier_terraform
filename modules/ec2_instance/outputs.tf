@@ -5,5 +5,15 @@ output "public_ip" {
   value       = aws_instance.web.*.public_ip
 }
 
-/* use the [*] syntax to include all instances of the aws_instance.web_server 
-resource */
+output "private_ip" {
+  description = "The private IP address of the EC2 instance(s)"
+  value       = aws_instance.web.*.private_ip
+}
+
+output "instance_ids" {
+  description = "The ID(s) of the EC2 instance(s)"
+  value       = aws_instance.web.*.id
+}
+
+#  use the * (wildcard) to reference all of the public and 
+#  private IP addresses, and all IDs of the EC2 Instances. 

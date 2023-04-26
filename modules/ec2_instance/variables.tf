@@ -1,7 +1,7 @@
 # EC2 Instance Child Module - Input Variables
 
 variable "instance_type" {
-  description = "Instance type for EC2 instance"
+  description = "The type of EC2 instance to launch"
   type        = string
   default     = "t2.micro"
 }
@@ -9,7 +9,7 @@ variable "instance_type" {
 variable "ami_id" {
   description = "AMI ID for EC2 instance"
   type        = string
-  default     = "ami-0c94855ba95c71c99"
+  default     = "ami-03c7d01cf4dedc891"
 }
 
 variable "key_name" {
@@ -18,7 +18,7 @@ variable "key_name" {
 }
 
 variable "security_group_ids" {
-  description = "List of security group IDs for EC2 instance"
+  description = "A list of security group IDs to attach to the EC2 instance"
   type        = list(string)
 }
 
@@ -30,7 +30,7 @@ variable "instance_count" {
 }
 
 variable "public_subnet_ids" {
-  description = "List of public subnet IDs for EC2 instance"
+  description = "A list of public subnet IDs where the EC2 instance should be launched"
   type        = list(string)
 }
 

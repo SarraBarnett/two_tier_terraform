@@ -3,8 +3,9 @@
 #   To use the resources defined in child modules within our root module, 
 #   add parent modules that reference those child modules.
 
-module "vpc" {
-  source = "./modules/vpc" # relative path to child module
+module "vpc" {             # Parent module
+  source = "./modules/vpc" # Relative path to Child module
+
   # Assign input variables
   name                       = "two_tier-vpc"
   region                     = "us-east-1"
@@ -12,14 +13,14 @@ module "vpc" {
   public_subnet_cidr_blocks  = ["10.0.1.0/24", "10.0.2.0/24"]
   private_subnet_cidr_blocks = ["10.0.3.0/24", "10.0.4.0/24"]
   availability_zones         = ["us-east-1a", "us-east-1b"]
-
 }
 
 #   Launch an EC2 Instance with Apache webserver in each 
 #   public web tier subnet
 
 module "web_server" {
-  source             = "./modules/ec2_instance"
+  source = "./modules/ec2_instance"
+
   ami_id             = "ami-03c7d01cf4dedc891"
   instance_type      = "t2.micro"
   key_name           = "projectkeypair"
@@ -30,7 +31,7 @@ module "web_server" {
 
 # Launch an RDS MySQL Instance in the private RDS subnets
 
-module "rds_instance" {
+module "mysql_db" {
   source = "./modules/rds_instance"
 
   db_name            = "twotier"
