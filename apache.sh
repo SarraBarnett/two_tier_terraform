@@ -1,5 +1,11 @@
-#!/bin/bash  
-sudo apt-get update
-sudo apt-get install -y nginx
-sudo systemctl enable nginx
-sudo systemctl start nginx
+#!/bin/bash
+
+# Update the system
+sudo yum update -y
+
+# Install Apache
+sudo yum install httpd -y
+
+# Start and enable Apache
+sudo systemctl start httpd
+sudo systemctl enable httpd
