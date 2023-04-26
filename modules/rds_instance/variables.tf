@@ -25,11 +25,6 @@ variable "db_name" {
   description = "The name of the RDS instance"
 }
 
-variable "security_group_id" {
-  type        = string
-  description = "The ID of the security group for the RDS instance"
-}
-
 variable "private_subnet_ids" {
   type        = list(string)
   description = "List of private subnet IDs"
@@ -41,4 +36,9 @@ variable "rds_username" {
 
 variable "rds_password" {
   description = "The password for the RDS instance"
+}
+
+variable "security_group_ids" {
+  description = "List of security group IDs to associate with the RDS instance"
+  type        = list(string)
 }

@@ -1,36 +1,40 @@
 # EC2 Instance Child Module - Input Variables
 
-variable "ami" {
+variable "instance_type" {
+  description = "Instance type for EC2 instance"
   type        = string
-  description = "The ID of the Amazon Machine Image (AMI) to use for the EC2 instances."
+  default     = "t2.micro"
 }
 
-variable "instance_type" {
+variable "ami_id" {
+  description = "AMI ID for EC2 instance"
   type        = string
-  description = "The type of instance to launch, such as 't2.micro'."
+  default     = "ami-0c94855ba95c71c99"
 }
 
 variable "key_name" {
+  description = "Name of key pair to use for EC2 instance"
   type        = string
-  description = "The name of the key pair to use for SSH access to the EC2 instances."
 }
 
-variable "web_server_sg_id" {
-  type        = string
-  description = "The ID of the security group to apply to the EC2 instances."
-}
-
-variable "subnet_ids" {
+variable "security_group_ids" {
+  description = "List of security group IDs for EC2 instance"
   type        = list(string)
-  description = "A list of IDs of the subnets in which to launch the EC2 instances."
+}
+
+
+variable "instance_count" {
+  description = "Number of EC2 instances to create"
+  type        = number
+  default     = 2
+}
+
+variable "public_subnet_ids" {
+  description = "List of public subnet IDs for EC2 instance"
+  type        = list(string)
 }
 
 variable "user_data" {
-  type        = string
-  description = "The user data to include when launching the EC2 instances."
-}
-
-variable "name_prefix" {
-  type        = string
-  description = "A prefix to use for the names of the EC2 instances."
+  type    = string
+  default = null
 }
