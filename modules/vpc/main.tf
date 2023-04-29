@@ -13,32 +13,6 @@ resource "aws_vpc" "vpc" {
   }
 }
 
-resource "aws_subnet" "public_subnet_1" {
-  vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.public_subnet_cidr_blocks[0]
-  availability_zone       = var.availability_zones[0]
-  map_public_ip_on_launch = true
-}
-
-resource "aws_subnet" "public_subnet_2" {
-  vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.public_subnet_cidr_blocks[1]
-  availability_zone       = var.availability_zones[1]
-  map_public_ip_on_launch = true
-}
-
-resource "aws_subnet" "private_subnet_1" {
-  vpc_id            = aws_vpc.vpc.id
-  cidr_block        = var.private_subnet_cidr_blocks[0]
-  availability_zone = var.availability_zones[0]
-}
-
-resource "aws_subnet" "private_subnet_2" {
-  vpc_id            = aws_vpc.vpc.id
-  cidr_block        = var.private_subnet_cidr_blocks[1]
-  availability_zone = var.availability_zones[1]
-}
-
 resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.vpc.id
   route {
@@ -92,4 +66,30 @@ resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat.id
   subnet_id     = aws_subnet.public_subnet_1.id
   depends_on    = [aws_internet_gateway.my_internet_gateway]
+}
+
+resource "aws_subnet" "public_subnet_1" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = var.public_subnet_cidr_blocks[0]
+  availability_zone       = var.availability_zones[0]
+  map_public_ip_on_launch = true
+}
+
+resource "aws_subnet" "public_subnet_2" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = var.public_subnet_cidr_blocks[1]
+  availability_zone       = var.availability_zones[1]
+  map_public_ip_on_launch = true
+}
+
+resource "aws_subnet" "private_subnet_1" {
+  vpc_id            = aws_vpc.vpc.id
+  cidr_block        = var.private_subnet_cidr_blocks[0]
+  availability_zone = var.availability_zones[0]
+}
+
+resource "aws_subnet" "private_subnet_2" {
+  vpc_id            = aws_vpc.vpc.id
+  cidr_block        = var.private_subnet_cidr_blocks[1]
+  availability_zone = var.availability_zones[1]
 }
